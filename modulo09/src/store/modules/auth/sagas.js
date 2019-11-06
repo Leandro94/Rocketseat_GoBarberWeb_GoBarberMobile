@@ -13,12 +13,15 @@ export function* signIn({ payload }) {
       email,
       password,
     });
+
     const { token, user } = response.data;
     //console.tron.log(user);
+
     if (!user.provider) {
       toast.error('Usuário não é prestador');
       return;
     }
+
     yield put(signInSuccess(token, user));
     history.push('/dashboard');
   } catch (err) {
@@ -43,5 +46,5 @@ export function* signUp({ payload }) {
 }
 export default all([
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
-  takeLatest('@auth/ISGN_UP_REQUEST', signUp),
+  takeLatest('@auth/SIGN_UP_REQUEST', signUp),
 ]);
