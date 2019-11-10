@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import history from '~/services/history';
 import api from '~/services/api';
 import { signInSuccess, signFailure } from './actions';
-import SignUp from '~/pages/SignUp';
 
 export function* signIn({ payload }) {
   try {

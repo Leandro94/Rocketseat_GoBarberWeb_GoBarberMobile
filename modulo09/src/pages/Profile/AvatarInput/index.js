@@ -14,12 +14,12 @@ export default function AvatarInput() {
   useEffect(() => {
     if (ref.current) {
       registerField({
-        name: 'avatar_ id',
+        name: 'avatar_id',
         ref: ref.current,
         path: 'dataset.file',
       });
     }
-  }, [ref.current]);
+  }, [ref.current]); // eslint-disable-line
 
   async function handleChange(e) {
     const data = new FormData();
