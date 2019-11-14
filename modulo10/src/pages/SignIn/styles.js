@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Input from '~/components/Input';
 import Button from '~/components/Button';
 
+//esconder teclado
 export const Container = styled.KeyboardAvoidingView.attrs({
   enabled: Platform.OS === 'ios',
   behavior: 'padding',
