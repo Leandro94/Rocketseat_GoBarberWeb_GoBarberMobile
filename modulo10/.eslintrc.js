@@ -1,14 +1,11 @@
 module.exports = {
   env: {
-    browser: true,
     es6: true,
-    jest: true,
   },
   extends: ['airbnb', 'prettier', 'prettier/react'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
-    _DEV_: true,
   },
   parser: 'babel-eslint',
   parserOptions: {
@@ -18,10 +15,44 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', 'jsx-ally', 'import', 'react-hooks', 'prettier'],
+  plugins: ['react', 'prettier'],
   rules: {
     'prettier/prettier': 'error',
-    'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.js'] }],
+    'react/jsx-filename-extension': [
+      'warn',
+      {
+        extensions: ['.jsx', '.js'],
+      },
+    ],
+    'import/prefer-default-export': 'off',
+  },
+};
+module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+    jest: true,
+  },
+  extends: ['airbnb', 'prettier', 'prettier/react'],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+    __DEV__: true,
+  },
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
+  plugins: ['react', 'jsx-a11y', 'import', 'react-hooks', 'prettier'],
+  rules: {
+    'prettier/prettier': 'error',
+    'react/jsx-filename-extension': [
+      'error',
+      { extensions: ['.js', '.jsx', '.json', '.native.js'] },
+    ],
     'import/prefer-default-export': 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     'react/jsx-one-expression-per-line': 'off',
@@ -33,6 +64,8 @@ module.exports = {
     'no-console': ['error', { allow: ['tron'] }],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'react/jsx-props-no-spreading': 'off',
+    'react-hooks/exhaustive-deps': 'off',
   },
   settings: {
     'import/resolver': {
