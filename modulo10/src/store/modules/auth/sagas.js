@@ -30,6 +30,7 @@ export function* signIn({ payload }) {
       'Falha na autenticação',
       'Houve um erro no login, verifique seus dados'
     );
+    console.error(err.message);
     yield put(signFailure());
   }
 }
@@ -40,7 +41,6 @@ export function* signUp({ payload }) {
       nome,
       email,
       password,
-      provider: true,
     });
     // history.push('/');
   } catch (err) {
@@ -48,6 +48,7 @@ export function* signUp({ payload }) {
       'Falha no cadastro',
       'Houve um erro no cadastro, verifique seus dados'
     );
+    console.error(err.message);
     yield put(signFailure());
   }
 }
